@@ -1,0 +1,7 @@
+*.iml
+*.log
+*.md
+.git
+.gitignore
+Dockerfile
+README*
