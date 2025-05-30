@@ -1,0 +1,53 @@
+# 🧩 Component Diagram – Task Management Backend (Spring Boot)
+
+This component diagram illustrates the high-level structure and interaction flow of the backend system built using Spring Boot.
+
+## 🧱 Key Components
+
+### 1. **Controller Layer** – `TaskController`
+- Exposes RESTful API endpoints.
+- Handles HTTP requests (`GET`, `POST`, `PUT`, `DELETE`).
+- Delegates business logic to the `TaskService`.
+
+### 2. **Service Layer** – `TaskService`
+- Contains core business logic.
+- Performs task creation, retrieval, update, and deletion.
+- Communicates with the `TaskRepository` for database operations.
+- Uses `TaskMapper` for converting between model and DTO.
+
+### 3. **Data Access Layer** – `TaskRepository`
+- Interface extending `JpaRepository`.
+- Provides built-in methods for CRUD operations on `TaskModels`.
+
+### 4. **Model Layer** – `TaskModels`
+- Represents the `task_management` database entity.
+- Annotated with JPA and validation annotations for ORM and input validation.
+
+### 5. **DTO Layer** – `TaskRequestDTO`, `TaskResponseDTO`, `TaskMapper`
+- `TaskRequestDTO`: Used for request payloads.
+- `TaskResponseDTO`: Used for response data.
+- `TaskMapper`: Maps between `TaskModels` and DTOs.
+
+## 🔁 Interactions
+
+```text
+Client
+  |
+  | HTTP Request (JSON)
+  v
+[TaskController]
+  |
+  | Delegates to
+  v
+[TaskService]
+  |
+  | Reads/Writes via
+  v
+[TaskRepository]
+  |
+  | JPA Layer -> MySQL Database
+  v
+[task_management Table]
+
+Additionally:
+- [TaskService] <-> [TaskMapper] <-> [DTOs] for data transformation
