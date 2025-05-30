@@ -54,11 +54,15 @@ http://localhost:8080
 Example endpoints:
 
 GET    api/tasks
+GET    api/tasks/{id}
 POST   api/tasks
 PUT    api/tasks/{id}
 DELETE api/tasks/{id}
 
 Use Postman
+
+Documentation
+https://documenter.getpostman.com/view/29757568/2sB2qfAzKR
 
 👨‍💻 Author
 Benedict Boadu-Boateng
